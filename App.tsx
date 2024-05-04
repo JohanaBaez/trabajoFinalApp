@@ -1,31 +1,42 @@
-
 import React from 'react';
-import { View } from 'react-native';
-import Profile from './components/Profile';
+import { StyleSheet, View } from 'react-native';
+import UserProfile from './components/UserProfile';
 
 const App: React.FC = () => {
-  const handleNewLinkSubmit = (url: string, text: string) => {
-    // TODO: Send new link data to server
-    console.log(`New link submitted: ${url} (${text})`);
+  const [links, setLinks] = React.useState([
+    // { url: 'https://github.com/JohanaBaez', text: 'GitHub' },
+    // { url: 'https://www.frontendmentor.io/', text: 'Frontend Mentor' },
+    // { url: 'https://www.linkedin.com/feed/', text: 'LinkedIn' },
+    // { url: 'https://twitter.com/?lang=es', text: 'Twitter' },
+  ]);
+
+  // const handleUpdateLinks = (newLinks: { url: string; text: string }[]) => {
+  //   setLinks(newLinks);
+  // };
+
+  const userProfileData = {
+    name: 'Jessica Randall',
+    location: 'London, United Kingdom',
+    description: 'Front-end developer and avid reader.',
+    imageUrl: 'https://social-links-profile-main-henna.vercel.app/_next/image?url=%2Fassets%2Fimages%2Favatar-jessica.jpeg&w=3840&q=75',
+    links: links,
+    
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Profile
-        image="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imprentaonline.net%2Fblog%2Fprompt-imagenes-ia%2F&psig=AOvVaw1dTmCNv4n01m77XVUrvXOU&ust=1714260045115000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPDq06qC4YUDFQAAAAAdAAAAABAE"
-        username="Jessica Randall"
-        location="London, United Kingdom"
-        description="Front-end developer and avid reader."
-        links={[
-          { url: 'https://github.com/JohanaBaez', text: 'GitHub' },
-          { url: 'https://www.frontendmentor.io/profile/jessica-randall', text: 'Frontend Mentor' },
-          { url: 'https://www.linkedin.com/in/jessica-randall/', text: 'LinkedIn' },
-          { url: 'https://twitter.com/jessica_randall', text: 'Twitter' },
-        ]}
-        onNewLinkSubmit={handleNewLinkSubmit}
-      />
+    <View style={styles.container}>
+      <UserProfile {...userProfileData} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default App;
