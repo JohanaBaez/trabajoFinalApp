@@ -16,7 +16,7 @@ export const userpath = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     const fetchPosts = async () => {
-        const response = await fetch("http://192.168.23.60:3000/");
+        const response = await fetch("http://192.168.23.60:3001/");
         const data: Array<Post> = await response.json();
         console.log(data)
 
