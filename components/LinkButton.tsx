@@ -1,32 +1,19 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 
 interface LinkButtonProps {
-  text: string;
+  link: { url: string; text: string };
   onPress: () => void;
-  style?: object;
-  textStyle?: object;
 }
 
-const LinkButton: React.FC<LinkButtonProps> = ({ text, onPress, style, textStyle }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({ link, onPress }) => {
   return (
-    <TouchableOpacity style={[styles.linkButton, style]} onPress={onPress}>
-      <Text style={[styles.linkText, textStyle]}>{text}</Text>
+    <TouchableOpacity onPress={onPress}>
+      <Text style={{ color: '#333333' }}>{link.text}</Text>
     </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
-  linkButton: {
-    backgroundColor: '#ddd',
-    borderRadius: 5,
-    padding: 10,
-    margin: 5,
-  },
-  linkText: {
-    fontSize: 16,
-    color: '#333',
-  },
-});
-
 export default LinkButton;
+
+
