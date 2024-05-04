@@ -43,7 +43,7 @@ const UserProfile = ({
         links.push({ url: newLink.url, text: newLink.text });
   
         // URL del servidor
-        const response = await fetch('http://192.168.23.60:3000/posts', {
+        const response = await fetch('http://192.168.23.60:3001/posts', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
