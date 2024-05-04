@@ -117,14 +117,16 @@ const UserProfile = ({
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Add a new link</Text>
             <TextInput
-              style={styles.input}
+              style={[styles.input, styles.urlInput]}
               placeholder="URL"
+              placeholderTextColor="white"
               value={newLink.url}
               onChangeText={(text) => setNewLink({ ...newLink, url: text, profilePicture: text })}
             />
             <TextInput
-              style={styles.input}
+              style={[styles.input, styles.textInput]}
               placeholder="Text"
+              placeholderTextColor="white"
               value={newLink.text}
               onChangeText={(text) => setNewLink({ ...newLink, text: text, profileName: text })}
             />
@@ -206,17 +208,17 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   linksContainer: {
-    marginTop: -50,
+    marginTop: 5,
     alignItems: "center",
     justifyContent: "center",
   },
   linkButton: {
     backgroundColor: "#333333",
     paddingVertical: 16,
-    paddingHorizontal: 55,
-    borderRadius: 5,
-    marginBottom: 16,
-    height: 130,
+    paddingHorizontal: 5,
+    borderRadius: 10,
+    marginBottom: 10,
+    height: 70,
     width: 300,
     alignItems: "center",
     justifyContent: "center",
@@ -273,6 +275,16 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#333333",
   },
+  urlInput: {
+    fontSize: 20,
+    color: "#fff",
+  },
+  textInput: {
+    fontSize: 20,
+    color: "#fff",
+  },
+
+  
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
